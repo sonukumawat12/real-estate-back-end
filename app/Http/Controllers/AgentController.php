@@ -20,7 +20,7 @@ class AgentController extends Controller
             'country' => 'required|string|max:100',
             'state' => 'required|string|max:100',
             'city' => 'required|string|max:100',
-            'role_name' => 'required|string|max:100',
+            'role' => 'required|string|max:100',
         ]);
 
         // Create the user using the validated data
@@ -35,9 +35,7 @@ class AgentController extends Controller
     }
 
     public function getAgents(){
-        $allAgents = Agent::all();
-        rm -r .git
-
+        $allAgents = Agent::with('roles')->latest()->get();
         return response()->json(['success'=>true, 'data'=> compact('allAgents')]);
     }
 

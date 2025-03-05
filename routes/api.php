@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RolePermission\RoleController;
@@ -17,3 +18,4 @@ Route::get('permissions',[RoleController::class, 'getPermissions']);
 Route::post('create-role-with-permissions', [RoleController::class, 'createRoleWithPermissions']);
 Route::post('create-user', [AgentController::class, 'createUser']);
 Route::get('get-agents', [AgentController::class, 'getAgents']);
+Route::delete('delete-admin/{id}', [AdminController::class, 'delete']);
