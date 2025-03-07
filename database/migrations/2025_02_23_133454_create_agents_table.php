@@ -13,15 +13,19 @@ return new class extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName', 255);
-            $table->string('lastName', 255);
-            $table->string('phone', 15);
-            $table->string('email', 255)->unique();
+            $table->string('first_name', 50);
+            $table->string('last_name', 50);
+            $table->string('email', 100)->unique();
+            $table->string('phone_no', 15)->unique();
+            $table->string('password');
+            $table->string('profile_picture')->nullable();
+            $table->string('agency_name', 100)->nullable();
+            $table->text('address')->nullable();
+            $table->string('city', 50);
+            $table->string('state', 50);
+            $table->string('country', 50);
             $table->string('pincode', 10);
-            $table->string('country', 100);
-            $table->string('state', 100);
-            $table->string('city', 100);
-            $table->string('password', 255);
+            $table->enum('status', ['Active', 'Inactive', 'Pending'])->default('Pending');
             $table->timestamps();
         });
     }
