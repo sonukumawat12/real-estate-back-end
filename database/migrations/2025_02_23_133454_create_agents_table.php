@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone_no', 15)->unique();
             $table->string('password');
             $table->string('profile_picture')->nullable();
-            $table->string('agency_name', 100)->nullable();
+            $table->string('company_name', 100)->nullable();
             $table->text('address')->nullable();
             $table->string('city', 50);
             $table->string('state', 50);
